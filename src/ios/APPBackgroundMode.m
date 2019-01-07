@@ -51,8 +51,8 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
 - (void) pluginInitialize
 {
     enabled = NO;
-    [self configureAudioPlayer];
-    [self configureAudioSession];
+    //[self configureAudioPlayer];
+    //[self configureAudioSession];
     [self observeLifeCycle];
 }
 
@@ -121,7 +121,7 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
     if (!enabled)
         return;
 
-    [audioPlayer play];
+    //[audioPlayer play];
     [self fireEvent:kAPPBackgroundEventActivate];
 }
 
@@ -138,7 +138,7 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
         [self fireEvent:kAPPBackgroundEventDeactivate];
     }
 
-    [audioPlayer pause];
+    //[audioPlayer pause];
 }
 
 /**
@@ -152,11 +152,11 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
     NSURL* url = [NSURL fileURLWithPath:path];
 
 
-    audioPlayer = [[AVAudioPlayer alloc]
+    /*audioPlayer = [[AVAudioPlayer alloc]
                    initWithContentsOfURL:url error:NULL];
 
     audioPlayer.volume        = 0;
-    audioPlayer.numberOfLoops = -1;
+    audioPlayer.numberOfLoops = -1;*/
 };
 
 /**
@@ -164,7 +164,7 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
  */
 - (void) configureAudioSession
 {
-    AVAudioSession* session = [AVAudioSession
+    /*AVAudioSession* session = [AVAudioSession
                                sharedInstance];
 
     // Don't activate the audio session yet
@@ -177,6 +177,7 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
 
     // Active the audio session
     [session setActive:YES error:NULL];
+    */
 };
 
 #pragma mark -
